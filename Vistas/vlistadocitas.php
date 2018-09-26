@@ -6,18 +6,19 @@
         ?>
         <div class="main-panel">
             <div class="content-wrapper">
+                <div class="col-12 grid-margin">
+                <div class="card-header" data-background-color="blue">
+                    <h4 class="title">Citas</h4>
+                </div>
+                <a href="../Vistas/vcita.php" class="btn btn-default"><i class='fa fa-male'></i> Nueva Cita</a>
                 <div class="card-content table-responsive">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-hover">
                     <thead>
-                        <tr>
-                            <th>Paciente</th><th>Area - Medico</th><th>Fecha</th><th>Hora</th><th>Estado</th>
-                            <th>Estado de Pago</th><th>Costo</th>
-                        </tr>
+                            <th>Paciente</th><th>Area - Medico</th><th>Fecha</th><th>Hora</th>
                     </thead>
-                    <tbody>
-                        <tr>
                         <?php for($i=0;$i<count($datcitas);$i++){ ?>
-                            <td class="font-weight-medium">
+                        <tr>
+                            <td>
                             <?php echo $datcitas[$i]["paciente"]; ?>
                             </td><td>
                             <?php echo $datcitas[$i]["area"]; ?>
@@ -25,20 +26,16 @@
                             <?php echo $datcitas[$i]["fecha"]; ?>
                             </td><td>
                             <?php echo $datcitas[$i]["hora"]; ?>
-                            </td> <td>
-                            <?php echo $datcitas[$i]["estado"]; ?>
-                            </td><td>
-                            <?php echo $datcitas[$i]["estado_pago"]; ?>
-                            </td><td>
-                            <?php echo $datcitas[$i]["costo"]; ?>
                             </td>
                         </tr>
-                    </tbody>
+                        <?php
+			            }
+			            ?>
+                    </table>
                 </div>
             </div>
         </div>
-        <?php
-        }         
+        <?php       
         include ("plantilla2.php");
     }
 

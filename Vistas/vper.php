@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if (isset($_SESSION['USUARIO']) && $_SESSION['USUARIO'] == 'YES') {
+        include ("plantilla1.php");
+        include ("../controlador/cmedico.php");
+?>
+<div class="main-panel">
+<div class="content-wrapper">
 <div class="col-12 grid-margin">
     <div class="card">
         <div class="card-header">
@@ -96,3 +104,12 @@
         </div>
     </div>
 </div>
+</div>
+<?php
+
+include ("plantilla2.php");
+    }
+    else{
+        header('location: ./');
+    }
+?>

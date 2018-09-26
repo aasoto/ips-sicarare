@@ -26,7 +26,7 @@ include("conexion2.php");
         }   
 
         function selper(){
-            $sql="SELECT id, numdoc, nom1, nom2, apellido1, apellido2, sexo, fec_nac, e_mail FROM pacientes;";
+            $sql="SELECT numdoc, nom1, nom2, apellido1, apellido2, sexo, fec_nac, e_mail FROM pacientes;";
             
             $data = $this->selcot($sql);
             return $data;

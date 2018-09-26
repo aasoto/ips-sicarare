@@ -6,29 +6,22 @@
         ?>
         <div class="main-panel">
             <div class="content-wrapper">
+                <div class="col-12 grid-margin">
+                <div class="card-header" data-background-color="blue">
+                    <h4 class="title">Pacientes</h4>
+                </div>
+                <a href="../Vistas/vper.php" class="btn btn-default"><i class='fa fa-male'></i> Nuevo Paciente</a>
                 <div class="card-content table-responsive">
-                <table class="table table-bordered">
+                    <table class="table table-bordered table-hover">
                     <thead>
-                        <tr>
-                            <th>ID</th><th>Num. Doc.</th><th>Primer Nombre</th><th>Segundo Nombre</th><th>Primer Apellido</th>
-                            <th>Segundo Apellido</th><th> Sexo</th><th>Fec. Nac.</th><th>E-mail</th>
-                        </tr>
+                        <th>Documento</th><th>Nombre</th><th> Sexo</th><th>Fecha de Nacimiento</th><th>E-mail</th>
                     </thead>
-                    <tbody>
-                        <tr>
                         <?php for($i=0;$i<count($datper);$i++){ ?>
-                            <td class="font-weight-medium">
-                                <?php echo $datper[$i]["id"]; ?>
-                            </td><td>
+                        <tr>
+                            <td>
                             <?php echo $datper[$i]["numdoc"]; ?>
                             </td><td>
-                            <?php echo $datper[$i]["nom1"]; ?>
-                            </td><td>
-                            <?php echo $datper[$i]["nom2"]; ?>
-                            </td> <td>
-                            <?php echo $datper[$i]["apellido1"]; ?>
-                            </td><td>
-                            <?php echo $datper[$i]["apellido2"]; ?>
+                            <?php echo $datper[$i]["nom1"]." ".$datper[$i]["nom2"]." ".$datper[$i]["apellido1"]." ".$datper[$i]["apellido2"]; ?>
                             </td><td>
                             <?php echo $datper[$i]["sexo"]; ?>
                             </td><td>
@@ -37,12 +30,14 @@
                             <?php echo $datper[$i]["e_mail"]; ?>
                             </td>
                         </tr>
-                    </tbody>
+                        <?php
+			            }
+			            ?>
+                    </table>
                 </div>
             </div>
         </div>
-        <?php
-        }         
+        <?php        
         include ("plantilla2.php");
     }
 

@@ -12,8 +12,8 @@
 
     if($numdoc && $nom1 && $apellido1 && $apellido2 && $sexo && $fec_nac && $e_mail){
         $obj->insper($numdoc, $nom1, $nom2, $apellido1, $apellido2, $sexo, $fec_nac, $e_mail);
+        print "<script>window.location='../Vistas/inicio_admin.php';</script>";
     }
 
     $datper = $obj->selper();
-    print "<script>window.location='../Vistas/inicio_admin.php';</script>";
 ?>

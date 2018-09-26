@@ -27,7 +27,7 @@ include("conexion2.php");
         }   
 
         function listado_citas(){
-            $sql="SELECT paciente, area, fecha, hora, estado, estado_pago, costo FROM citas;";
+            $sql="SELECT paciente, area, fecha, hora FROM citas;";
             
             $data = $this->selcot($sql);
             return $data;

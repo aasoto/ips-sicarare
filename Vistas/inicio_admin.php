@@ -37,9 +37,6 @@
       
       <div class="main-panel">
         <div class="content-wrapper">
-          <?php
-            include ("vper.php");
-          ?>
 
         <footer class="footer">
           <div class="container-fluid clearfix">

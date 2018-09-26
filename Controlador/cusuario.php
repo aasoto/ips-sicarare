@@ -16,6 +16,7 @@
 
     if($tipo_doc && $num_doc && $nom1 && $apellido1 && $sexo && $fec_nac && $e_mail && $user && $password && $rol){
         $obj->insertar_user($tipo_doc, $num_doc, $nom1, $nom2, $apellido1, $apellido2, $sexo, $fec_nac, $e_mail, $user, $password, $rol);
+        print "<script>window.location='../Vistas/vusuario.php';</script>";
     }
 
     $inf_rol = $obj->consulta_rol();
