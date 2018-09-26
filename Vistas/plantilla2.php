@@ -1,6 +1,15 @@
-</div>
-    <!-- page-body-wrapper ends -->
+        <footer class="footer">
+          <div class="container-fluid clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
+              <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i>
+            </span>
+          </div>
+        </footer>
   </div>
+    <!-- page-body-wrapper ends -->
+</div>
   <!-- container-scroller -->
 
   <!-- plugins:js -->
@@ -15,7 +24,7 @@
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="../Recursos/js/dashboard.js"></script>
-  <<script src="../Recursos/js/salir.js"></script>
+  <script src="../Recursos/js/salir.js"></script>
   <!-- End custom js for this page-->
 </body>
 

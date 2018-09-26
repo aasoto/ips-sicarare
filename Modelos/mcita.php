@@ -22,7 +22,6 @@ include("conexion2.php");
         function insertar_cita($paciente, $area, $fecha, $hora, $estado, $estado_pago, $costo){
             $sql = "INSERT INTO citas(paciente, area, fecha, hora, estado, estado_pago, costo) 
             VALUES ('$paciente', '$area', '$fecha', '$hora', '$estado', '$estado_pago', '$costo');";
-        echo $sql;
         $this->selcon($sql);    
 
         }   

@@ -12,6 +12,7 @@
 
     if($paciente && $area && $fecha && $hora && $estado && $estado_pago && $costo){
         $obj->insertar_cita($paciente, $area, $fecha, $hora, $estado, $estado_pago, $costo);
+        print "<script>window.location='../Vistas/vcita.php';</script>";
     }
 
     $datcitas = $obj->listado_citas();
