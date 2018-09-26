@@ -21,8 +21,7 @@ include("conexion2.php");
 
         function insper($numdoc, $nom1, $nom2, $apellido1, $apellido2, $sexo, $fec_nac, $e_mail){
             $sql = "INSERT INTO pacientes(numdoc, nom1, nom2, apellido1, apellido2, sexo, fec_nac, e_mail) VALUES ('$numdoc', '$nom1', '$nom2', '$apellido1', '$apellido2', '$sexo', '$fec_nac', '$e_mail');";
-        echo $sql;
-        $this->selcon($sql);    
+            $this->selcon($sql);    
 
         }   
 

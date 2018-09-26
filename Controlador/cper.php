@@ -15,4 +15,5 @@
     }
 
     $datper = $obj->selper();
+    print "<script>window.location='../Vistas/inicio_admin.php';</script>";
 ?>
