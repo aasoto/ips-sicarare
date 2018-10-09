@@ -19,9 +19,9 @@ include("conexion2.php");
             return $data;
         }
 
-        function insertar_medico($numdoc, $nom1, $nom2, $apellido1, $apellido2, $sexo, $fec_nac, $e_mail, $direc, $telefono, $estado, $area){
-            $sql = "INSERT INTO medicos(numdoc, nom1, nom2, apellido1, apellido2, sexo, fec_nac, e_mail, direc, telefono, estado, area) VALUES 
-            ('$numdoc', '$nom1', '$nom2', '$apellido1', '$apellido2', '$sexo', '$fec_nac', '$e_mail', '$direc', '$telefono', '$estado', '$area');";
+        function insertar_medico($tipo_doc, $numdoc, $nom1, $nom2, $apellido1, $apellido2, $sexo, $fec_nac, $e_mail, $direc, $telefono, $estado, $area, $user, $password){
+            $sql = "INSERT INTO medicos(tipo_doc, numdoc, nom1, nom2, apellido1, apellido2, sexo, fec_nac, e_mail, direc, telefono, estado, area, user, password) VALUES 
+            ('$tipo_doc', '$numdoc', '$nom1', '$nom2', '$apellido1', '$apellido2', '$sexo', '$fec_nac', '$e_mail', '$direc', '$telefono', '$estado', '$area', '$user', '$password');";
         $this->selcon($sql);    
 
         }   
