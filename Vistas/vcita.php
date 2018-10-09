@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Paciente</label>
+                                <label class="col-sm-4 col-form-label">Paciente* </label>
                                 <div class="col-sm-8">
                                     <select name="paciente" class="form-control" required>
                                         <option value="">-- SELECCIONE --</option>
@@ -29,12 +29,12 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Médico</label>
+                                <label class="col-sm-3 col-form-label">Médico* </label>
                                 <div class="col-sm-9">
-                                    <select name="area" class="form-control" required>
+                                    <select name="medico" class="form-control" required>
                                         <option value="">-- SELECCIONE --</option>
                                         <?php for($i=0;$i<count($inf_medicos);$i++){?>
-                                            <option value="<?php echo $inf_medicos[$i]["area"]." - ".$inf_medicos[$i]["nom1"]." ".$inf_medicos[$i]["nom2"]." ".$inf_medicos[$i]["apellido1"]." ".$inf_medicos[$i]["apellido2"]; ?>">
+                                            <option value="<?php echo $inf_medicos[$i]["nom1"]." ".$inf_medicos[$i]["nom2"]." ".$inf_medicos[$i]["apellido1"]." ".$inf_medicos[$i]["apellido2"]; ?>">
                                             <?php echo $inf_medicos[$i]["area"]." - ".$inf_medicos[$i]["nom1"]." ".$inf_medicos[$i]["nom2"]." ".$inf_medicos[$i]["apellido1"]." ".$inf_medicos[$i]["apellido2"]; ?></option>
                                         <?php } ?>
                                     </select>
@@ -45,17 +45,17 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Fecha</label>
+                                <label class="col-sm-4 col-form-label">Fecha* </label>
                                 <div class="col-sm-8">
-                                    <input type="date" name="fecha" required class="form-control" id="inputEmail1" placeholder="Fecha">
+                                    <input type="date" name="fecha" required min=<?php $hoy=date("Y-m-d"); echo $hoy;?> class="form-control" id="inputEmail1" placeholder="Fecha">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Hora</label>
+                                <label class="col-sm-3 col-form-label">Hora* </label>
                                 <div class="col-sm-9">
-                                    <input type="time" name="hora" required class="form-control" id="inputEmail1" placeholder="Hora">
+                                    <input type="time" name="hora" required class="form-control" id="inputEmail1" placeholder="Hora" required>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Estado de la cita</label>
+                                <label class="col-sm-4 col-form-label">Estado de la cita* </label>
                                 <div class="col-sm-8">
                                     <select name="estado" class="form-control" required>
                                         <option value="Pendiente">Pendiente</option>      
@@ -76,7 +76,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Estado del pago</label>
+                                <label class="col-sm-3 col-form-label">Estado del pago* </label>
                                 <div class="col-sm-9">
                                     <select name="estado_pago" class="form-control" required>
                                         <option value="">-- SELECCIONE --</option>      
@@ -90,9 +90,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Costo</label>
+                                <label class="col-sm-4 col-form-label">Costo* </label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="costo" placeholder="Costo">
+                                    <input type="text" class="form-control" name="costo" placeholder="Costo" required>
                                 </div>
                             </div>
                         </div>

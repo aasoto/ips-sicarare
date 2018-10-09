@@ -1,6 +1,7 @@
 <?php
     session_start();
     if (isset($_SESSION['USUARIO']) && $_SESSION['USUARIO'] == 'YES') {
+        
         include ("plantilla1.php");
         include ("../controlador/ccita.php");
         ?>
@@ -11,6 +12,7 @@
                     <h4 class="title">Citas</h4>
                 </div>
                 <a href="../Vistas/vcita.php" class="btn btn-default"><i class='fa fa-male'></i> Nueva Cita</a>
+                <a href="../Vistas/vlistadocitasxmed.php" class="btn btn-default"><i class='fa fa-male'></i> Ver Mis Citas</a>
                 <div class="card-content table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
