@@ -7,14 +7,14 @@
         <div class="main-panel">
             <div class="content-wrapper">
                 <div class="col-12 grid-margin">
+                <a href="../Vistas/vper.php" type="button" class="btn btn-inverse-primary btn-fw"><i class='mdi mdi-account-plus'></i> Nuevo Paciente</a>
                 <div class="card-header" data-background-color="blue">
                     <h4 class="title">Pacientes</h4>
                 </div>
-                <a href="../Vistas/vper.php" class="btn btn-default"><i class='fa fa-male'></i> Nuevo Paciente</a>
                 <div class="card-content table-responsive">
                     <table class="table table-bordered table-hover">
                     <thead>
-                        <th>Documento</th><th>Nombre</th><th> Sexo</th><th>Fecha de Nacimiento</th><th>E-mail</th>
+                        <th>Documento</th><th>Nombre</th><th> Sexo</th><th>Fec. Nac.</th><th>E-mail</th><th>Acciones</th>
                     </thead>
                         <?php for($i=0;$i<count($datper);$i++){ ?>
                         <tr>
@@ -23,11 +23,17 @@
                             </td><td>
                             <?php echo $datper[$i]["nom1"]." ".$datper[$i]["nom2"]." ".$datper[$i]["apellido1"]." ".$datper[$i]["apellido2"]; ?>
                             </td><td>
-                            <?php echo $datper[$i]["sexo"]; ?>
+                            <?php
+                            $str = $datper[$i]["sexo"];
+                            $str = strtoupper($str);
+                            ?>
+                            <?php echo $str; ?>
                             </td><td>
                             <?php echo $datper[$i]["fec_nac"]; ?>
                             </td><td>
                             <?php echo $datper[$i]["e_mail"]; ?>
+                            </td><td>
+                            <a href="../Vistas/veditpaciente.php?numdoc=<?php echo $datper[$i]["numdoc"];?>" class="btn btn-icons btn-inverse-warning"><i class="mdi mdi-account-edit"></i></a>
                             </td>
                         </tr>
                         <?php
