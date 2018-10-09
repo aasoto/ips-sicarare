@@ -19,8 +19,8 @@ include("conexion2.php");
             return $data;
         }
 
-        function insper($numdoc, $nom1, $nom2, $apellido1, $apellido2, $sexo, $fec_nac, $e_mail){
-            $sql = "INSERT INTO pacientes(numdoc, nom1, nom2, apellido1, apellido2, sexo, fec_nac, e_mail) VALUES ('$numdoc', '$nom1', '$nom2', '$apellido1', '$apellido2', '$sexo', '$fec_nac', '$e_mail');";
+        function insper($tipo_doc, $numdoc, $nom1, $nom2, $apellido1, $apellido2, $sexo, $fec_nac, $e_mail){
+            $sql = "INSERT INTO pacientes(tipo_doc, numdoc, nom1, nom2, apellido1, apellido2, sexo, fec_nac, e_mail) VALUES ('$tipo_doc', '$numdoc', '$nom1', '$nom2', '$apellido1', '$apellido2', '$sexo', '$fec_nac', '$e_mail');";
             $this->selcon($sql);    
 
         }  

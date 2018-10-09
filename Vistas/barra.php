@@ -28,7 +28,7 @@
                   </div>
                 </div>
               </a>
-              <a class="dropdown-item">
+                <a class="dropdown-item" href="cambio_contrasena.php">
                 Cambiar Contraseña
               </a>
                 <a class="dropdown-item" onclick="salir();">

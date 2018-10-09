@@ -19,9 +19,9 @@ include("conexion2.php");
             return $data;
         }
 
-        function insertar_cita($paciente, $area, $fecha, $hora, $estado, $estado_pago, $costo){
-            $sql = "INSERT INTO citas(paciente, area, fecha, hora, estado, estado_pago, costo) 
-            VALUES ('$paciente', '$area', '$fecha', '$hora', '$estado', '$estado_pago', '$costo');";
+        function insertar_cita($paciente, $area, $fecha, $hora, $estado, $estado_pago, $costo, $medico, $usermedico){
+            $sql = "INSERT INTO citas(paciente, area, fecha, hora, estado, estado_pago, costo, medico, usermedico) 
+            VALUES ('$paciente', '$area', '$fecha', '$hora', '$estado', '$estado_pago', '$costo', '$medico', '$usermedico');";
         $this->selcon($sql);    
 
         }   
@@ -41,7 +41,7 @@ include("conexion2.php");
         }
 
         function consulta_medicos(){
-            $sql="SELECT area, nom1, nom2, apellido1, apellido2 FROM medicos;";
+            $sql="SELECT * FROM medicos;";
             
             $data = $this->selcot($sql);
             return $data;
