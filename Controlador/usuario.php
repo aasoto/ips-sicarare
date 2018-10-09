@@ -16,6 +16,8 @@
                 session_start();
                 $_SESSION['USUARIO'] = 'YES';
                 $_SESSION['NOMBRE'] = $array[1];
+                $_SESSION['USER'] = $usuario;
+
             } 
         }
 	
