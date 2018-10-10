@@ -16,14 +16,14 @@
                     <thead>
                             <th>Paciente</th><th>Fecha</th><th>Hora</th>
                     </thead>
-                        <?php for($i=0;$i<count($datcitas);$i++){ ?>
+                        <?php for($i=0;$i<count($cita_medico);$i++){ ?>
                         <tr>
                             <td>
-                            <?php echo $datcitas[$i]["paciente"]; ?>
+                            <?php echo $cita_medico[$i]["paciente"]; ?>
                             </td><td>
-                            <?php echo $datcitas[$i]["fecha"]; ?>
+                            <?php echo $cita_medico[$i]["fecha"]; ?>
                             </td><td>
-                            <?php echo $datcitas[$i]["hora"]; ?>
+                            <?php echo $cita_medico[$i]["hora"]; ?>
                             </td>
                         </tr>
                         <?php

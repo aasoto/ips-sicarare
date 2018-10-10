@@ -27,13 +27,13 @@ include("conexion2.php");
         }   
 
         function listado_user(){
-            $sql="SELECT tipo_doc, num_doc, nom1, nom2, apellido1, apellido2, sexo, fec_nac, e_mail, user, area FROM usuarios;";
+            $sql="SELECT * FROM usuarios;";
             $data = $this->selcot($sql);
             return $data;
         }
 
         function consulta_rol(){
-            $sql="SELECT nom_rol FROM tipo_rol;";
+            $sql="SELECT * FROM tipo_rol;";
             $data = $this->selcot($sql);
             return $data;
         }

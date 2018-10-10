@@ -13,6 +13,7 @@
     $datcitas = $obj->listado_citas();
     $inf_pacientes = $obj->consulta_pacientes();
     $inf_medicos = $obj->consulta_medicos();
+    $cita_medico = $obj->consulta_cita_medico();
     
     if($paciente && $medico && $fecha && $hora && $estado && $estado_pago && $costo){
         for($i=0;$i<count($inf_medicos);$i++){
