@@ -1,7 +1,7 @@
 <?php
+//session_start();
 include("conexion2.php");
     class mcita{
-        
         function mcita(){}
         
         function selcon($sql){
@@ -28,6 +28,22 @@ include("conexion2.php");
 
         function listado_citas(){
             $sql="SELECT paciente, area, fecha, hora FROM citas;";
+            
+            $data = $this->selcot($sql);
+            return $data;
+        }
+
+        function consulta_cita_medico(){
+            $usuario = $_SESSION['USER'];
+            $sql="SELECT paciente, area, fecha, hora FROM citas WHERE usermedico = '$usuario';";
+            
+            $data = $this->selcot($sql);
+            return $data;
+        }
+
+        function consulta_cita_medico_dia($fecha){
+            $usuario = $_SESSION['USER'];
+            $sql="SELECT paciente, area, fecha, hora FROM citas WHERE usermedico = '$usuario' AND fecha = '$fecha';";
             
             $data = $this->selcot($sql);
             return $data;

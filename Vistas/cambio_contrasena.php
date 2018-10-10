@@ -1,6 +1,7 @@
 <?php
     session_start();
     if (isset($_SESSION['USUARIO']) && $_SESSION['USUARIO'] == 'YES') {
+    $hola = $_SESSION['USUARIO'];   
 ?>
     <!DOCTYPE html>
 <head>
@@ -39,50 +40,68 @@
     <div class="main-panel">
         <div class="content-wrapper">
             
-            <div class="row">                
+            <div class="row">
+               
             <div class="col-12 grid-margin">
-              <div class="card">
+                <div class="card">
                   
-              <div class="card-header" data-background-color="blue">
-                    <h4 class="title">Cambio de contraseña</h4>
-                </div>
-
-                <div class="card-body">
-                  <div class="row">
-                      <div class="card-body">
-                      <form class="forms-sample">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Contraseña Actual</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Nueva Contraseña</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Repita la Nueva Contraseña</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                        <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <button class="btn btn-light">Cancel</button>
-                      </form>
-                    </div>
-                  </div>
+                    <form class="form-horizontal" method="post" id="addproduct" action="../controlador/cambio_contrasena.php.php" role="form">   
+                
+                   
+                   <div class="card-body">
+                <h4 class="card-title">Cambio Contraseña </h4>
                   
-                  
-                  <div class="row">
-                      <div class="col-md-6">
-                        <h4>Recuerde...</h4>
-                        <p>Actualize su contraseña periodicamente:</p>
-                        <div class="text-center">
-                            <div style="margin-top: 20px">
-                                <i class="fa fa-unlock-alt fa-6 big-icon" style="font-size: 180px;color: #e5e5e5 "></i>
+                <div class="col-md-6 d-flex align-items-stretch grid-margin">
+                    <div class="row flex-grow">
+                        <div class="col-10">
+                            <div class="card">
+                                <div class="row">
+                                <div class="card-body">
+                                    <form class="forms-sample">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Contraseña Actual</label>
+                                            <input type="hidden" name="password" value="<?php  $hola ?> "  class="form-control">
+                                            <input type="email" class="form-control" name="Con_actual" id="exampleInputEmail1" placeholder="Contraseña actual">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Nueva Contraseña</label>
+                                            <input type="password" class="form-control" name="Con_nueva" id="exampleInputPassword1" placeholder="Contraseña Nueva">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Repita la Nueva Contraseña</label>
+                                            <input type="password" class="form-control" name="Rcon_nueva" id="exampleInputPassword1" placeholder="Repita Contraseña">
+                                        </div>
+                                        <button type="submit" class="btn btn-success mr-2">Submit</button>
+                                        <button class="btn btn-light">Cancel</button>
+                                    </form>
+                                  </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                  </div>
                 </div>
-              </div>
+                <div class="col-md-6 d-flex align-items-stretch grid-margin">
+                    <div class="row flex-grow">
+                        <div class="col-12">
+                            <div class="card">
+                                <p>Actualize su contraceña periodicamente:</p>
+                                <div class="text-center">
+                                    <div style="margin-top: 20px">
+                                        <i class="fa fa-unlock-alt fa-6 big-icon" style="font-size: 180px;color: #e5e5e5 "></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  
+                
+                 
+                </div>
+              
+                </form>   
+                   
+                </div>
             </div>
 			
 			
@@ -132,11 +151,3 @@ else{
 
 
 ?>
-
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-

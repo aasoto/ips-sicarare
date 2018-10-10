@@ -16,6 +16,11 @@
 			//$pass = sha1($contrasena);
 			$sql = "SELECT * FROM USUARIOS WHERE user = '$usuario' && password = '$contrasena'";
 			$resultados = $this->conexion->conexion->query($sql);
+			if ($resultados->num_rows == 0) {
+				/* Para consultar en la tabla medicos el usuario y la constraseña */
+				$sql = "SELECT * FROM MEDICOS WHERE user = '$usuario' && password = '$contrasena'";
+				$resultados = $this->conexion->conexion->query($sql);
+			}
 			if ($resultados->num_rows > 0) {
 				$r = $resultados->fetch_array();
 			}
