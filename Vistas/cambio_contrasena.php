@@ -39,23 +39,15 @@
     <div class="main-panel">
         <div class="content-wrapper">
             
-            <div class="row">
-            <div class="col-md-6 d-flex align-items-stretch grid-margin">
-              <div class="row flex-grow">
-                <div class="col-12">
-                  <div class="card">
-                    gdgdfgfg
-                  </div>
-                </div>
-              </div>
-            </div>
-                
+            <div class="row">                
             <div class="col-12 grid-margin">
               <div class="card">
                   
-                  
+              <div class="card-header" data-background-color="blue">
+                    <h4 class="title">Cambio de contraseña</h4>
+                </div>
+
                 <div class="card-body">
-                  <h4 class="card-title">Cambio Contraseña </h4>
                   <div class="row">
                       <div class="card-body">
                       <form class="forms-sample">
@@ -81,7 +73,7 @@
                   <div class="row">
                       <div class="col-md-6">
                         <h4>Recuerde...</h4>
-                        <p>Actualize su contraceña periodicamente:</p>
+                        <p>Actualize su contraseña periodicamente:</p>
                         <div class="text-center">
                             <div style="margin-top: 20px">
                                 <i class="fa fa-unlock-alt fa-6 big-icon" style="font-size: 180px;color: #e5e5e5 "></i>

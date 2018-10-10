@@ -19,24 +19,26 @@
                     <thead>
                         <th>Documento</th><th>Nombre</th><th> Sexo</th><th>Fec. Nac.</th><th>E-mail</th><th>Acciones</th>
                     </thead>
-                        <?php for($i=0;$i<count($datper);$i++){ ?>
+                        <?php 
+                        $datpac = lista();
+                        for($i=0;$i<count($datpac);$i++){ ?>
                         <tr>
                             <td>
-                            <?php echo $datper[$i]["numdoc"]; ?>
+                            <?php echo $datpac[$i]["numdoc"]; ?>
                             </td><td>
-                            <?php echo $datper[$i]["nom1"]." ".$datper[$i]["nom2"]." ".$datper[$i]["apellido1"]." ".$datper[$i]["apellido2"]; ?>
+                            <?php echo $datpac[$i]["nom1"]." ".$datpac[$i]["nom2"]." ".$datpac[$i]["apellido1"]." ".$datpac[$i]["apellido2"]; ?>
                             </td><td>
                             <?php
-                            $str = $datper[$i]["sexo"];
+                            $str = $datpac[$i]["sexo"];
                             $str = strtoupper($str);
                             ?>
                             <?php echo $str; ?>
                             </td><td>
-                            <?php echo $datper[$i]["fec_nac"]; ?>
+                            <?php echo $datpac[$i]["fec_nac"]; ?>
                             </td><td>
-                            <?php echo $datper[$i]["e_mail"]; ?>
+                            <?php echo $datpac[$i]["e_mail"]; ?>
                             </td><td>
-                            <a href="../Vistas/veditpaciente.php?numdoc=<?php echo $datper[$i]["numdoc"];?>" class="btn btn-icons btn-inverse-warning"><i class="mdi mdi-account-edit"></i></a>
+                            <a href="../Vistas/veditpaciente.php?numdoc=<?php echo $datpac[$i]["numdoc"];?>" class="btn btn-icons btn-inverse-warning"><i class="mdi mdi-account-edit"></i></a>
                             </td>
                         </tr>
                         <?php
