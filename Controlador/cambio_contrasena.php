@@ -1,8 +1,14 @@
 <?php
+    include('/Modelos/cambio_contrasena.php');
+    $obj = new cambio_contrasena();
+    
+    $contrasena = isset($_POST["Con_nueva"]) ? $_POST["Con_nueva"]:NULL;
+    $id = isset($_POST[''])
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
+
+
+
+
+
+?>
