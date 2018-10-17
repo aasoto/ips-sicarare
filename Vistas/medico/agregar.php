@@ -1,9 +1,3 @@
-<?php
-    session_start();
-    if (isset($_SESSION['USUARIO']) && $_SESSION['USUARIO'] == 'YES') {
-        include ("plantilla1.php");
-        include ("../controlador/cmedico.php");
-?>
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="col-12 grid-margin">
@@ -12,7 +6,7 @@
             Nuevo Médico
         </div>
         <div class="card-body">
-		      <form class="form-horizontal" method="post" id="addproduct" action="../Controlador/cmedico.php" role="form">
+		      <form class="form-horizontal" method="post" action="?c=medico&a=Guardar" role="form">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group row">
@@ -20,9 +14,9 @@
                     <div class="col-sm-7">
                       <select name="area" class="form-control" required>
                         <option value="">-- SELECCIONE --</option>
-                          <?php for($i=0;$i<count($inf_area);$i++){?>
-                            <option value="<?php echo $inf_area[$i]["area_nom"]; ?>"><?php echo $inf_area[$i]["area_nom"]; ?></option>
-                          <?php } ?>     
+                        <?php foreach ($this->modelo->ListarAreas() as $a): ?>
+                            <option value="<?= $a->area_nom?>"><?= $a->area_nom?></option>
+                        <?php endforeach; ?>  
                       </select>
                     </div>
                 </div>
@@ -160,7 +154,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group row">
-                  <label class="col-sm-5 col-form-label">Usuario*</label>
+                  <label class="col-sm-4 col-form-label">Usuario*</label>
                     <div class="col-sm-7">
                       <input type="text" name="user" class="form-control" id="user" placeholder="Usuario" required>
                     </div>
@@ -168,7 +162,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group row">
-                  <label class="col-sm-4 col-form-label">Contraseña*</label>
+                  <label class="col-sm-5 col-form-label">Contraseña*</label>
                     <div class="col-sm-7">
                       <input type="password" name="password" class="form-control" id="password" placeholder="Contraseña" required>
                     </div>
@@ -183,11 +177,3 @@
       </div>
 	  </div>
 </div>
-<?php
-
-include ("plantilla2.php");
-    }
-    else{
-        header('location: ./');
-    }
-?>

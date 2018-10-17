@@ -1,9 +1,3 @@
-<?php
-    session_start();
-    if (isset($_SESSION['USUARIO']) && $_SESSION['USUARIO'] == 'YES') {
-        include ("../controlador/cusuario.php");
-        include ("plantilla1.php");
-?>
 <div class="main-panel">
     <div class="content-wrapper">
     <div class="col-12 grid-margin">
@@ -12,7 +6,7 @@
             Nuevo Usuario
         </div>
         <div class="card-body">
-            <form class="form-horizontal" method="post" id="addproduct" action="../controlador/cusuario.php" role="form">
+            <form class="form-horizontal" method="post" action="?c=usuario&a=Guardar" role="form">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
@@ -135,9 +129,9 @@
                             <div class="col-sm-7">
                                 <select name="rol" class="form-control" required>
                                     <option value="">-- SELECCIONE --</option>
-                                    <?php for($i=0;$i<count($inf_rol);$i++){?>
-                                    <option value="<?php echo $inf_rol[$i]["nom_rol"]; ?>"><?php echo $inf_rol[$i]["nom_rol"]; ?></option>
-                                    <?php } ?>     
+                                    <?php foreach ($this->modelo->ListarRol() as $r): ?>
+                                        <option value="<?= $r->nom_rol ?>"><?= $r->nom_rol ?></option>
+                                    <?php endforeach; ?>      
                                 </select>
                             </div>
                         </div>
@@ -150,12 +144,5 @@
             </form>
         </div>
     </div>
+    </div>
 </div>
-</div>
-        <?php
-        include ("plantilla2.php");
-    }
-    else{
-        header('location: ./');
-    }
-?>
