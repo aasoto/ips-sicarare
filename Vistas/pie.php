@@ -9,6 +9,8 @@
     <script type="text/javascript" src="assets/js/plugins/chart.js"></script>
     <script type="text/javascript">
     </script>
+    <!-- Otros-->
+    <script src="assets/js/salir.js"></script>
     <!-- Google analytics script-->
     <script type="text/javascript">
       if(document.location.hostname == 'pratikborsadiya.in') {

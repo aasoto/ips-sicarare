@@ -14,6 +14,7 @@
             <div class="tile-title-w-btn">
               <h3 class="title">Lista de Citas</h3>
               <p><a class="btn btn-primary icon-btn" href="?c=cita&a=FormCrear"><i class="fa fa-plus"></i>Registrar Cita</a></p>
+              <a href="?c=cita&a=FormConsultar" class="btn btn-inverse-primary btn-fw"><i class='mdi mdi-clipboard'></i> Ver Mis Citas</a>
             </div>
             <div class="tile-body">
               <table class="table table-hover table-bordered" id="sampleTable">
