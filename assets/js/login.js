@@ -1,4 +1,4 @@
-function confirmar(){
+﻿function confirmar(){
 	var usuario = $('#usuario').val();
 	var contrasena = $('#contrasena').val();
 	//alert(usuario + contrasena);
@@ -9,7 +9,7 @@ function confirmar(){
 	}).done(function(respuesta){
             //alert(respuesta);
             if (respuesta == '0') {
-                alert('usuario o contraseña incorecta');
+                alert('usuario o contraseña incorrecta');
             }else{
                 location.href = 'partida.php';
             }

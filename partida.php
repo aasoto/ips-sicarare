@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 if (isset($_SESSION['USUARIO']) && $_SESSION['USUARIO'] == 'YES') {
 
@@ -19,4 +20,5 @@ if (isset($_SESSION['USUARIO']) && $_SESSION['USUARIO'] == 'YES') {
 }else{
     header('location: ./');
 }
+
 ?>
