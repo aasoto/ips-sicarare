@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (isset($_SESSION['USUARIO']) && $_SESSION['USUARIO'] == 'YES') {
+        include ("../controlador/ccita.php");
+        include ("plantilla1.php");
+?>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="col-12 grid-margin">
@@ -6,7 +12,7 @@
                      Nueva Cita
                 </div>
                 <div class="card-body">
-                    <form class="form-horizontal" method="post" action="?c=cita&a=Guardar" role="form">
+                    <form class="form-horizontal" method="post" id="addproduct" action="../controlador/ccita.php" role="form">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
@@ -14,9 +20,9 @@
                                 <div class="col-sm-8">
                                     <select name="paciente" class="form-control" required>
                                         <option value="">-- SELECCIONE --</option>
-                                        <?php foreach ($this->modelo->ListarPacientes() as $p): ?>
-                                            <option value="<?= $p->numdoc." ".$p->nom1." ".$p->nom2." ".$p->apellido1." ".$p->apellido2 ?>"><?= $p->numdoc." - ".$p->nom1." ".$p->nom2." ".$p->apellido1." ".$p->apellido2 ?></option>
-                                        <?php endforeach; ?>
+                                        <?php for($i=0;$i<count($inf_pacientes);$i++){?>
+                                            <option value="<?php echo $inf_pacientes[$i]["numdoc"]." - ".$inf_pacientes[$i]["nom1"]." ".$inf_pacientes[$i]["nom2"]." ".$inf_pacientes[$i]["apellido1"]." ".$inf_pacientes[$i]["apellido2"]; ?>"><?php echo $inf_pacientes[$i]["numdoc"]." - ".$inf_pacientes[$i]["nom1"]." ".$inf_pacientes[$i]["nom2"]." ".$inf_pacientes[$i]["apellido1"]." ".$inf_pacientes[$i]["apellido2"]; ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -27,9 +33,10 @@
                                 <div class="col-sm-9">
                                     <select name="medico" class="form-control" required>
                                         <option value="">-- SELECCIONE --</option>
-                                        <?php foreach ($this->modelo->ListarMedicos() as $m): ?>
-                                            <option value="<?= $m->nom1." ".$m->nom2." ".$m->apellido1." ".$m->apellido2 ?>"><?= $m->area." - ".$m->nom1." ".$m->nom2." ".$m->apellido1." ".$m->apellido2 ?></option>
-                                        <?php endforeach; ?>
+                                        <?php for($i=0;$i<count($inf_medicos);$i++){?>
+                                            <option value="<?php echo $inf_medicos[$i]["nom1"]." ".$inf_medicos[$i]["nom2"]." ".$inf_medicos[$i]["apellido1"]." ".$inf_medicos[$i]["apellido2"]; ?>">
+                                            <?php echo $inf_medicos[$i]["area"]." - ".$inf_medicos[$i]["nom1"]." ".$inf_medicos[$i]["nom2"]." ".$inf_medicos[$i]["apellido1"]." ".$inf_medicos[$i]["apellido2"]; ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -59,7 +66,6 @@
                                 <label class="col-sm-4 col-form-label">Estado de la cita* </label>
                                 <div class="col-sm-8">
                                     <select name="estado" class="form-control" required>
-                                        <option value="">-- SELECCIONE --</option>  
                                         <option value="Pendiente">Pendiente</option>      
                                         <option value="Aplicada">Aplicada</option>
                                         <option value="No Asistio">No Asistió</option>
@@ -98,3 +104,9 @@
             </div>
         </div>
     </div>
+<?php
+    include ("plantilla2.php");
+        }else{
+        header('location: ./');
+    }
+?>

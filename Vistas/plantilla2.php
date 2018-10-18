@@ -1,4 +1,4 @@
-<footer class="footer">
+        <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
               <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
@@ -13,18 +13,18 @@
   <!-- container-scroller -->
 
   <!-- plugins:js -->
-  <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-  <script src="assets/vendors/js/vendor.bundle.addons.js"></script>
+  <script src="../Recursos/vendors/js/vendor.bundle.base.js"></script>
+  <script src="../Recursos/vendors/js/vendor.bundle.addons.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
   <!-- inject:js -->
-  <script src="assets/js/off-canvas.js"></script>
-  <script src="assets/js/misc.js"></script>
+  <script src="../Recursos/js/off-canvas.js"></script>
+  <script src="../Recursos/js/misc.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="assets/js/dashboard.js"></script>
-  <script src="assets/js/salir.js"></script>
+  <script src="../Recursos/js/dashboard.js"></script>
+  <script src="../Recursos/js/salir.js"></script>
   <!-- End custom js for this page-->
 </body>
 
