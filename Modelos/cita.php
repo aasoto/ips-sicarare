@@ -98,6 +98,27 @@ class Cita
 
     }
 
+    public function ListarCitaMedico($usuario){
+        try{
+            $consulta = $this->pdo->prepare("SELECT * FROM citas WHERE usermedico = '$usuario';");
+            $consulta->execute();
+            return $consulta->fetchAll(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+
+    }
+
+    public function ListarCitaMedico2($usuario, $fecha){
+        try{
+            $consulta = $this->pdo->prepare("SELECT * FROM citas WHERE usermedico = '$usuario' AND  fecha = '$fecha';");
+            $consulta->execute();
+            return $consulta->fetchAll(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+
+    }
     public function ListarPacientes(){
         try{
             $consultapa = $this->pdo->prepare("SELECT numdoc,nom1,nom2,apellido1,apellido2 FROM pacientes;");

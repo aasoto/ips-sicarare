@@ -52,4 +52,24 @@ class CitaControlador{
         header("location:?c=cita");
     }
 
+    public function Consulta(){
+        $usuario = $_SESSION['USER'];
+        if (isset($_POST['buscar'])){
+            $fecha_cita = isset($_POST["fecha2"]) ? $_POST["fecha2"]:NULL;
+            $r = $this->modelo->ListarCitaMedico2($usuario, $fecha_cita);
+        }else{
+            $r = $this->modelo->ListarCitaMedico($usuario);
+        }
+        return $r;
+    }
+    
+
 }
+
+/*if (isset($_POST['buscar'])){
+    $fecha_cita = isset($_POST["fecha2"]) ? $_POST["fecha2"]:NULL;
+    $usuario = $_SESSION['USER'];
+    $r = ListarCitaMedico2($fecha_cita, $usuario);
+}else{
+    $r = ListarCitaMedico($usuario);
+}*/
