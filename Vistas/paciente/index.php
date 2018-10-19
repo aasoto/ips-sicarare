@@ -43,7 +43,7 @@
                             <?= $r->e_mail?>
                         </td>
                         <td>
-                            <a href="?c=paciente&a=FormCrear&numdoc=<?= $r->numdoc?>" class="btn btn-primary">Editar</a>
+                            <a href="?c=paciente&a=FormCrear&numdoc=<?= $r->numdoc?>" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i>Editar</a>
                         </td>
                     </tr>
                     <?php endforeach;?>

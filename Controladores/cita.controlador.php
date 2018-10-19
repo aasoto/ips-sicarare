@@ -18,7 +18,12 @@ class CitaControlador{
     }
 
     Public function FormCrear(){
-
+        $titulo = "Registrar";
+        $c = new Cita();
+        if(isset($_GET['id'])){
+            $c=$this->modelo->Obtener($_GET['id']);
+            $titulo = "Modificar";
+        }
         require_once "Vistas/encabezado.php";
         require_once "Vistas/cita/agregar.php";
         require_once "Vistas/pie.php";
@@ -33,6 +38,7 @@ class CitaControlador{
 
     public function Guardar(){
         $c = new Cita();
+        $c->setCit_id(intval($_POST['id']));
         $c->setCit_paciente($_POST['paciente']);
 	    $c->setCit_fecha($_POST['fecha']);
         $c->setCit_hora($_POST['hora']);
@@ -46,7 +52,9 @@ class CitaControlador{
                 $c->setCit_usermedico($m->user);
              } 
         endforeach;
-        
+
+        $c->getCit_id() > 0 ?
+        $this->modelo->Actualizar($c) :
         $this->modelo->Insertar($c);
 
         header("location:?c=cita");

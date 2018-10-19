@@ -14,17 +14,18 @@
             <h3 class="tile-title"><?=$titulo?> Paciente</h3>
             <div class="tile-body">
                 <form class="form-horizontal" method="post" action="?c=paciente&a=Guardar" role="form">
+                    <input type="hidden" name="id" class="form-control" id="id" value="<?=$p->getPac_id()?>">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Tipo de Documento*</label>
                                 <div class="col-sm-8">
                                     <select name="tipo_doc" class="form-control" required>
-                                        <option value="">-- SELECCIONE UNA OPCIÓN --</option>      
-                                        <option value="C.C">Cedula de Ciudadanía</option>
-                                        <option value="T.I">Tarjeta de Identidad</option>
-                                        <option value="R.C">Registro Civil</option> 
-                                        <option value="Pas.">Pasaporte</option>     
+                                        <option value="" <?php if($p->getPac_tipo_doc()=="") echo "selected";?>>-- SELECCIONE UNA OPCIÓN --</option>      
+                                        <option value="C.C" <?php if($p->getPac_tipo_doc()=="C.C") echo "selected";?>>Cedula de Ciudadanía</option>
+                                        <option value="T.I" <?php if($p->getPac_tipo_doc()=="T.I") echo "selected";?>>Tarjeta de Identidad</option>
+                                        <option value="R.C" <?php if($p->getPac_tipo_doc()=="R.C") echo "selected";?>>Registro Civil</option> 
+                                        <option value="Pas." <?php if($p->getPac_tipo_doc()=="Pasaporte") echo "selected";?>>Pasaporte</option>     
                                     </select>
                                 </div>
                             </div>

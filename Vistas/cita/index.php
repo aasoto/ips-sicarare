@@ -13,17 +13,22 @@
           <div class="tile">
             <div class="tile-title-w-btn">
               <h3 class="title">Lista de Citas</h3>
-              <p><a class="btn btn-primary icon-btn" href="?c=cita&a=FormCrear"><i class="fa fa-plus"></i>Registrar Cita</a></p>
-              <a href="?c=cita&a=FormConsultar" class="btn btn-inverse-primary btn-fw"><i class='mdi mdi-clipboard'></i> Ver Mis Citas</a>
+                <div class="btn-group">
+                    <a class="btn btn-primary icon-btn" href="?c=cita&a=FormCrear"><i class="fa fa-plus"></i>Registrar Cita</a>
+                    <a class="btn btn-primary icon-btn" href="?c=cita&a=FormConsultar"><i class='fa fa-clipboard'></i> Ver Mis Citas</a>
+                </div>            
             </div>
             <div class="tile-body">
               <table class="table table-hover table-bordered" id="sampleTable">
                 <thead>
-                <th>Paciente</th><th>Area - Medico</th><th>Fecha</th><th>Hora</th><th>Acciones</th>
+                <th>ID</th><th>Paciente</th><th>Area - Medico</th><th>Fecha</th><th>Hora</th><th>Acciones</th>
                 </thead>
                 <tbody>
                 <?php foreach ($this->modelo->Listar() as $r):?>
                     <tr>
+                        <td>
+                            <?= $r->id?>
+                        </td>
                         <td>
                             <?= $r->paciente?>
                         </td>
@@ -37,7 +42,7 @@
                             <?= $r->hora?>
                         </td>
                         <td>
-                            <a href="#" class="btn btn-primary">Editar</a>
+                            <a href="?c=cita&a=FormCrear&id=<?= $r->id?>" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i>Editar</a>
                         </td>
                     </tr>
                     <?php endforeach;?>

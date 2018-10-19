@@ -5,6 +5,7 @@ class Cita
 
     private $pdo;
     //atributos
+    private $cit_id;
     private $cit_paciente;
 	private $cit_area;
 	private $cit_fecha;
@@ -18,6 +19,14 @@ class Cita
     //constructor de la clase
 	function __CONSTRUCT(){
 		$this->pdo = BasedeDatos::conectar();
+    }
+
+    public function getCit_id() : ?int{
+        return $this->cit_id;
+    }
+
+    public function setCit_id(int $id){
+        $this->cit_id=$id;
     }
 
     public function getCit_paciente() : ?string{
@@ -141,6 +150,30 @@ class Cita
 
     }
 
+    public function Obtener($id){
+        try{
+            $consulta = $this->pdo->prepare("SELECT * FROM citas WHERE id=?;");
+            $consulta->execute(array($id));
+            $r = $consulta->fetch(PDO::FETCH_OBJ);
+            $c = new Cita();
+            $c->setCit_id($r->id);
+            $c->setCit_paciente($r->paciente);
+            $c->setCit_area($r->area);
+            $c->setCit_fecha($r->fecha);
+            $c->setCit_hora($r->hora);
+            $c->setCit_estado($r->estado);
+            $c->setCit_estado_pago($r->estado_pago);
+            $c->setCit_costo($r->costo);
+            $c->setCit_medico($r->medico);
+            $c->setCit_usermedico($r->usermedico);
+
+            return $c;
+
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
     public function Insertar(Cita $c){
         try{
             $consulta="INSERT INTO citas(paciente, area, fecha, hora, estado, estado_pago, costo, medico, usermedico) VALUES (?,?,?,?,?,?,?,?,?);";
@@ -155,6 +188,37 @@ class Cita
                         $c->getCit_costo(),
                         $c->getCit_medico(),
                         $c->getCit_usermedico()
+                    ));
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function Actualizar(Cita $c){
+        try{
+            $consulta="UPDATE citas SET 
+                paciente=?,
+                area=?,
+                fecha=?, 
+                hora=?, 
+                estado=?, 
+                estado_pago=?, 
+                costo=?, 
+                medico=?, 
+                usermedico=? 
+                WHERE id=?;";
+            $this->pdo->prepare($consulta)
+                    ->execute(array(
+                        $c->getCit_paciente(),
+                        $c->getCit_area(),
+                        $c->getCit_fecha(),
+                        $c->getCit_hora(),
+                        $c->getCit_estado(),
+                        $c->getCit_estado_pago(),
+                        $c->getCit_costo(),
+                        $c->getCit_medico(),
+                        $c->getCit_usermedico(),
+                        $c->getCit_id()
                     ));
         }catch(Exception $e){
             die($e->getMessage());

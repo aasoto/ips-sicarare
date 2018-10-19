@@ -26,7 +26,7 @@
                     <div class="col-md-6">
                         <div class="form-group row">
                             <div class="col-sm-9">
-                                <button name="buscar"type="submit" class="btn btn-success mr-2">Consultar Citas</button>                            
+                                <button name="buscar"type="submit" class="btn btn-primary"><i class="fa fa-search"></i>Consultar Citas</button>                            
                             </div>
                         </div>
                     </div>

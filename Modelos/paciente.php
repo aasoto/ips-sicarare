@@ -5,7 +5,7 @@ class Paciente
 
     private $pdo;
     //atributos
-    private $id;
+    private $pac_id;
 	private $pac_numdoc;
 	private $pac_nom1;
 	private $pac_nom2;
