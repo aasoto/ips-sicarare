@@ -4,6 +4,8 @@ class Usuario{
 
     private $pdo;
     //atributos
+
+    private $usu_id;
     private $usu_tipo_doc;
 	private $usu_numdoc;
 	private $usu_nom1;
@@ -19,6 +21,10 @@ class Usuario{
 
     function __CONSTRUCT(){
 		$this->pdo = BasedeDatos::conectar();
+    }
+
+    public function getUsu_id() : ?int{
+        return $this->usu_id;
     }
 
     public function getUsu_tipo_doc() : ?string{
@@ -137,6 +143,15 @@ class Usuario{
             die($e->getMessage());
         }
 
+    }
+
+    public function Actualizar(Usuario $m){
+        try{
+            $consulta="UPDATE usuarios set password=?, where id=?";
+            $this->pdo->prepare($consulta)->execute(array($m->getUsu_password,$m->getUsu_id));
+        }catch()Exception $e){
+            die($e->getMessage());
+        }
     }
 
     public function Insertar(Usuario $u){
