@@ -18,7 +18,12 @@ private $modelo;
     }
 
     Public function FormCrear(){
-
+        $titulo = "Registrar";
+        $h = new Horario();
+        if(isset($_GET['id'])){
+            $h=$this->modelo->Obtener($_GET['id']);
+            $titulo = "Modificar";
+        }
         require_once "Vistas/encabezado.php";
         require_once "Vistas/horario/agregar.php";
         require_once "Vistas/pie.php";

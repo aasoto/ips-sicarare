@@ -24,7 +24,7 @@
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="index.php">Medical Center</a>
+    <header class="app-header"><a class="app-header__logo" href="partida.php">Medical Center</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <ul class="app-nav">
         <!-- User Menu-->

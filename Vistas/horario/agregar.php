@@ -11,10 +11,10 @@
       </div>
       <div class="col-md-12">
           <div class="tile">
-            <h3 class="tile-title">Registrar Horario</h3>
+            <h3 class="tile-title"><?=$titulo?> Horario</h3>
             <div class="tile-body">
                 <form class="form-horizontal" method="post" action="?c=horario&a=Guardar" role="form">
-                  <input type="hidden" name="id" class="form-control" id="id">
+                  <input type="hidden" name="id" class="form-control" id="id" value="<?=$h->getHor_id()?>">
                   <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
@@ -23,7 +23,7 @@
                                   <select name="area" class="form-control" required>
                                     <option value="">-- SELECCIONE --</option>
                                     <?php foreach ($this->modelo->ListarAreas() as $a): ?>
-                                    <option value="<?= $a->area_nom?>"><?= $a->area_nom?></option>
+                                    <option value="<?= $a->area_nom?>" <?php if($h->getHor_area()==$a->area_nom) echo "selected";?>><?= $a->area_nom?></option>
                                     <?php endforeach; ?>  
                                   </select>
                                 </div>
@@ -33,7 +33,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Hora Inicial*</label>
                                 <div class="col-sm-8">
-                                    <input type="time" name="horaini" class="form-control" placeholder="Hora de inicio" max="17:00:00" min="08:00:00"  required >
+                                    <input type="time" name="horaini" class="form-control" placeholder="Hora de inicio" max="17:00:00" min="08:00:00"  required value="<?=$h->getHor_horaini()?>">
                                 </div>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Hora Final*</label>
                                 <div class="col-sm-8">
-                                    <input type="time" name="horafin" class="form-control" placeholder="Hora de cierre" max="18:00:00" min="09:00:00" required>
+                                    <input type="time" name="horafin" class="form-control" placeholder="Hora de cierre" max="18:00:00" min="09:00:00" required value="<?=$h->getHor_horafin()?>">
                                 </div>
                             </div>
                         </div>

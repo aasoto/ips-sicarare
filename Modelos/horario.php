@@ -69,6 +69,24 @@ class Horario
 
     }
 
+    public function Obtener($id){
+        try{
+            $consulta = $this->pdo->prepare("SELECT * FROM horarios WHERE id=?;");
+            $consulta->execute(array($id));
+            $r = $consulta->fetch(PDO::FETCH_OBJ);
+            $h = new Horario();
+            $h->setHor_id($r->id);
+            $h->setHor_area($r->area_nom);
+            $h->setHor_horaini($r->hora_ini);
+            $h->setHor_horafin($r->hora_fi);
+
+            return $h;
+
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
     public function Insertar(Horario $h){
         try{
             $consulta="INSERT INTO horarios(area_nom, hora_ini, hora_fi) VALUES (?,?,?);";
@@ -77,6 +95,25 @@ class Horario
                         $h->getHor_area(),
                         $h->getHor_horaini(),
                         $h->getHor_horafin()
+                    ));
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function Actualizar(Horario $h){
+        try{
+            $consulta="UPDATE horarios SET 
+                area_nom=?,
+                hora_ini=?, 
+                hora_fi=?
+                WHERE id=?;";
+            $this->pdo->prepare($consulta)
+                    ->execute(array(
+                        $h->getHor_area(),
+                        $h->getHor_horaini(),
+                        $h->getHor_horafin(),
+                        $h->getHor_id()
                     ));
         }catch(Exception $e){
             die($e->getMessage());
