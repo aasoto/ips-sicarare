@@ -130,6 +130,24 @@ class Paciente
         }
     }
 
+    public function Verificar($numdoc){
+        try{
+            $consulta = $this->pdo->prepare("SELECT * FROM pacientes WHERE numdoc='$numdoc';");
+            $consulta->execute();
+            $consulta->fetch(PDO::FETCH_OBJ);
+            if ($consulta->rowCount() > 0) {
+                $documento = 'existe';
+                return $documento;
+            } else {
+                $documento = 'vacio';
+                return $documento;
+            }
+
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
     public function Insertar(Paciente $p){
         try{
             $consulta="INSERT INTO pacientes(tipo_doc, numdoc, nom1, nom2, apellido1, apellido2, sexo, fec_nac, e_mail) VALUES (?,?,?,?,?,?,?,?,?);";

@@ -1,17 +1,17 @@
 <main class="app-content">
     <div class="app-title">
         <div>
-          <h1><i class="fa fa-wheelchair"></i> Valoracion</h1>
+          <h1><i class="fa fa-wheelchair"></i> Valoración</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><a href="index.php"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item"><a href="?c=valoracion">Valoracion</a></li>
-          <li class="breadcrumb-item"><a href="?c=valoracion&a=FormCrear"><?=$titulo?> Valoracion</a></li>
+          <li class="breadcrumb-item"><a href="partida.php"><i class="fa fa-home fa-lg"></i></a></li>
+          <li class="breadcrumb-item"><a href="?c=cita">Citas</a></li>
+          <li class="breadcrumb-item"><a href="?c=cita&a=FormConsultar">Consultar Cita</a></li>
         </ul>
       </div>
       <div class="col-md-12">
           <div class="tile">
-            <h3 class="tile-title"><?=$titulo?> Valoracion</h3>
+            <h3 class="tile-title"><?=$titulo?> Valoración</h3>
             <div class="tile-body">
                 <form class="form-horizontal" method="post" action="?c=valoracion&a=Guardar" role="form">
                     <div class="row">

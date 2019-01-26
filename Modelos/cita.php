@@ -150,6 +150,24 @@ class Cita
 
     }
 
+    public function Verificar($fecha, $hora, $area){
+        try{
+            $consulta = $this->pdo->prepare("SELECT * FROM citas WHERE fecha='$fecha' AND hora='$hora' AND area='$area';");
+            $consulta->execute();
+            $consulta->fetch(PDO::FETCH_OBJ);
+            if ($consulta->rowCount() > 0) {
+                $bandera = 'existe';
+                return $bandera;
+            } else {
+                $bandera = 'vacio';
+                return $bandera;
+            }
+
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
     public function Obtener($id){
         try{
             $consulta = $this->pdo->prepare("SELECT * FROM citas WHERE id=?;");

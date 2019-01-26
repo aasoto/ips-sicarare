@@ -43,9 +43,17 @@ class MedicoControlador{
         $m->setMed_area($_POST['area']);
 
         
-        $this->modelo->Insertar($m);
+        $documento = $this->modelo->Verificar($_POST['numdoc']);    
+        if ($documento == 'vacio') {
+            $this->modelo->Insertar($m);
+            header("location:?c=medico");
+        } elseif ($documento == 'existe') {
+            echo "<script>
+            alert('El número de identificación ya está registrado.');
+            window.location= '?c=medico&a=FormCrear'
+            </script>";
+        } 
 
-        header("location:?c=medico");
     }
 
 }

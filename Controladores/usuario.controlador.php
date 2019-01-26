@@ -39,10 +39,17 @@ class UsuarioControlador{
         $u->setUsu_rol($_POST['rol']);
         $u->setUsu_password($_POST['password']);
 
-        
-        $this->modelo->Insertar($u);
+        $documento = $this->modelo->Verificar($_POST['num_doc']);    
+        if ($documento == 'vacio') {
+            $this->modelo->Insertar($u);
+            header("location:?c=usuario");
+        } elseif ($documento == 'existe') {
+            echo "<script>
+            alert('El número de identificación ya está registrado.');
+            window.location= '?c=usuario&a=FormCrear'
+            </script>";
+        } 
 
-        header("location:?c=usuario");
     }
 
 }

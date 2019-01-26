@@ -53,11 +53,29 @@ class CitaControlador{
              } 
         endforeach;
 
-        $c->getCit_id() > 0 ?
-        $this->modelo->Actualizar($c) :
-        $this->modelo->Insertar($c);
-
-        header("location:?c=cita");
+        if ($c->getCit_id() > 0) {
+            $bandera = $this->modelo->Verificar($c->getCit_fecha(), $c->getCit_hora(), $m->area);
+            if ($bandera == 'vacio') {
+                $this->modelo->Actualizar($c);
+                header("location:?c=cita");
+            } elseif ($bandera == 'existe') {
+                echo "<script>
+                alert('La fecha a la que desea cambiar no está disponible.');
+                history.go(-1);
+                </script>";
+            } 
+        } else{
+            $bandera = $this->modelo->Verificar($_POST['fecha'], $_POST['hora'], $m->area);
+            if ($bandera == 'vacio') {
+                $this->modelo->Insertar($c);
+                header("location:?c=cita");
+            } elseif ($bandera == 'existe') {
+                echo "<script>
+                alert('Ya existe una cita a esta misma hora.');
+                history.go(-1);
+                </script>";
+            } 
+        }
     }
 
     public function Consulta(){

@@ -41,11 +41,30 @@ class PacienteControlador{
         $p->setPac_e_mail($_POST['e_mail']);
         $p->setPac_tipo_doc($_POST['tipo_doc']);
 
-        $p->getPac_id() > 0 ?
-        $this->modelo->Actualizar($p) :
-        $this->modelo->Insertar($p);
-
-        header("location:?c=paciente");
+        
+        if ($p->getPac_id() > 0) { 
+            $documento = $this->modelo->Verificar($p->getPac_numdoc());
+            if ($documento == 'vacio') {
+                $this->modelo->Actualizar($p);
+                header("location:?c=paciente");
+            } elseif ($documento == 'existe') {
+                echo "<script>
+                alert('El número de identificación al que desea cambiar ya está registrado.');
+                window.location= '?c=paciente'
+                </script>";
+            }    
+        } else{
+            $documento = $this->modelo->Verificar($_POST['numdoc']);    
+            if ($documento == 'vacio') {
+                $this->modelo->Insertar($p);
+                header("location:?c=paciente");
+            } elseif ($documento == 'existe') {
+                echo "<script>
+                alert('El número de identificación ya está registrado.');
+                window.location= '?c=paciente'
+                </script>";
+            } 
+        }
     }
 
 }

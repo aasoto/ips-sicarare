@@ -46,9 +46,8 @@
                     foreach ($this->Consulta() as $r):?>
                         <tr>
                             <td>
-                            <td>
                             <?= $r->id?>
-                            </td>
+                            <td>
                             <?= $r->paciente?>
                             </td><td>
                             <?= $r->area." - ".$r->medico?>
@@ -56,8 +55,7 @@
                             <?= $r->fecha?>
                             </td><td>
                             <?= $r->hora?>
-                            </td>
-                            <td>
+                            </td><td>
                             <a href="?c=valoracion&a=FormCrear&numdoc=<?= $r->paciente?>&idcita=<?= $r->id?>" class="btn btn-primary">Valorar</a>
                             </td>
                         </tr>

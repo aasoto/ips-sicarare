@@ -168,6 +168,24 @@ class Medico
 
     }
 
+    public function Verificar($numdoc){
+        try{
+            $consulta = $this->pdo->prepare("SELECT * FROM medicos WHERE numdoc='$numdoc';");
+            $consulta->execute();
+            $consulta->fetch(PDO::FETCH_OBJ);
+            if ($consulta->rowCount() > 0) {
+                $documento = 'existe';
+                return $documento;
+            } else {
+                $documento = 'vacio';
+                return $documento;
+            }
+
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
     public function Insertar(Medico $m){
         try{
             $consulta="INSERT INTO medicos(tipo_doc, numdoc, nom1, nom2, apellido1, apellido2, sexo, fec_nac, e_mail, direc, telefono, estado, area, user, password) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
