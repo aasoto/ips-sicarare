@@ -53,6 +53,34 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Tipo de Sangre</label>
+                                <div class="col-sm-8">
+                                    <select name="tipo_sang" class="form-control" required>
+                                        <option value="" >-- SELECCIONE UNA OPCIÓN --</option>      
+                                        <option value="A" >A</option>
+                                        <option value="B" >B</option>
+                                        <option value="AB" >AB</option> 
+                                        <option value="O" >0</option>     
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">RH</label>
+                                <div class="col-sm-8">
+                                    <select name="rh" class="form-control" required>
+                                        <option value="" >-- SELECCIONE UNA OPCIÓN --</option>      
+                                        <option value="+" >Positivo</option>
+                                        <option value="-" >Negativo</option>    
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Frecuencia Cardiaca</label>
                                 <div class="col-sm-8">
                                     <input type="text" name="f_cardiaca" class="form-control" id="f_cardiaca" placeholder="">
@@ -141,6 +169,15 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Enfermedad </label>
+                                <div class="col-sm-8">
+                                    <textarea type="text" rows="4" name="enfer" id="enfer" class="form-control" placeholder="" ></textarea>  
+                                    <div id="enferList"></div>                                
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="tile-footer">       
                         <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-paper-plane"></i>Enviar</button>
@@ -151,3 +188,28 @@
       </div>
     </div>
 </main>
+
+<script>  
+ $(document).ready(function(){  
+      $('#enfer').keyup(function(){  
+           var query = $(this).val();  
+           if(query != '')  
+           {  
+                $.ajax({  
+                     url:"Vistas/valoracion/search.php",  
+                     method:"POST",  
+                     data:{query:query},  
+                     success:function(data)  
+                     {  
+                          $('#enferList').fadeIn();  
+                          $('#enferList').html(data);  
+                     }  
+                });  
+           }  
+      });  
+      $(document).on('click', 'li', function(){  
+           $('#enfer').val($(this).text());  
+           $('#enferList').fadeOut();  
+      });  
+ });  
+ </script> 
