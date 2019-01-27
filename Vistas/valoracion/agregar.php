@@ -1,7 +1,7 @@
 <main class="app-content">
     <div class="app-title">
         <div>
-          <h1><i class="fa fa-wheelchair"></i> Valoración</h1>
+          <h1><i class="fa fa-wheelchair"></i> Valoración Cita</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><a href="partida.php"><i class="fa fa-home fa-lg"></i></a></li>
