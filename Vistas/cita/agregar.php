@@ -18,14 +18,10 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Paciente*</label>
+                            <label class="col-sm-4 col-form-label">Paciente*</label>
                                 <div class="col-sm-8">
-                                    <select name="paciente" class="form-control" required>
-                                        <option value="">-- SELECCIONE --</option>
-                                        <?php foreach ($this->modelo->ListarPacientes() as $p): ?>
-                                            <option value="<?= $p->numdoc." - ".$p->nom1." ".$p->nom2." ".$p->apellido1." ".$p->apellido2 ?>" <?php if($c->getCit_paciente()==$p->numdoc." - ".$p->nom1." ".$p->nom2." ".$p->apellido1." ".$p->apellido2) echo "selected";?>><?= $p->numdoc." - ".$p->nom1." ".$p->nom2." ".$p->apellido1." ".$p->apellido2 ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <input type="text" name="paciente" id="paciente" class="form-control" placeholder="Digite el num de documento" />  
+                                    <div id="pacienteList"></div>
                                 </div>
                             </div>
                         </div>
@@ -108,5 +104,30 @@
       </div>
     </div>
 </main>
+
+<script>  
+ $(document).ready(function(){  
+      $('#paciente').keyup(function(){  
+           var query = $(this).val();  
+           if(query != '')  
+           {  
+                $.ajax({  
+                     url:"Vistas/cita/search.php",  
+                     method:"POST",  
+                     data:{query:query},  
+                     success:function(data)  
+                     {  
+                          $('#pacienteList').fadeIn();  
+                          $('#pacienteList').html(data);  
+                     }  
+                });  
+           }  
+      });  
+      $(document).on('click', 'li', function(){  
+           $('#paciente').val($(this).text());  
+           $('#pacienteList').fadeOut();  
+      });  
+ });  
+ </script> 
 
                            

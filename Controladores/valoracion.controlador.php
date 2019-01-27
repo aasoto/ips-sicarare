@@ -32,11 +32,13 @@ class ValoracionControlador{
     public function Guardar(){
         $p = new Valoracion();
         $p->setVal_idcita($_POST['idcita']);
-        $date = time();
-        $p->setVal_fec_hoy(date_format($date, 'Y-m-d H:i:s'));
+        $date = date("Y-m-d");
+        $p->setVal_fec_hoy(date("Y-m-d"));
         $p->setVal_paciente($_POST['paciente']);
         $p->setVal_peso($_POST['peso']);
         $p->setVal_talla($_POST['talla']);
+        $p->setVal_tipo_sang($_POST['tipo_sang']);
+        $p->setVal_rh($_POST['rh']);
 	    $p->setVal_f_cardiaca($_POST['f_cardiaca']);
 	    $p->setVal_f_respiratoria($_POST['f_respiratoria']);
         $p->setVal_p_arterial($_POST['p_arterial']);
@@ -47,6 +49,7 @@ class ValoracionControlador{
         $p->setVal_diagnostico($_POST['diagnostico']);
         $p->setVal_compli($_POST['compli']);
         $p->setVal_trat_aplic($_POST['trat_aplic']);
+        $p->setVal_enfer($_POST['enfer']);
 
         $this->modelo->Insertar($p);
 

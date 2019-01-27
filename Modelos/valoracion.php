@@ -20,6 +20,8 @@ class Valoracion
     private $val_fec_hoy;
     private $val_peso;
     private $val_talla;
+    private $val_tipo_sang;
+    private $val_rh;
     private $val_f_cardiaca;
     private $val_f_respiratoria;
     private $val_p_arterial;
@@ -30,6 +32,7 @@ class Valoracion
     private $val_diagnostico;
     private $val_compli;
     private $val_trat_aplic;
+    private $val_enfer;
     
 	//constructor de la clase
 	function __CONSTRUCT(){
@@ -143,6 +146,22 @@ class Valoracion
         $this->val_talla=$talla;
     }
 
+    public function getVal_tipo_sang() : ?string{
+        return $this->val_tipo_sang;
+    }
+
+    public function setVal_tipo_sang(string $tipo_sang){
+        $this->val_tipo_sang=$tipo_sang;
+    }
+
+    public function getVal_rh() : ?string{
+        return $this->val_rh;
+    }
+
+    public function setVal_rh(string $rh){
+        $this->val_rh=$rh;
+    }
+
     public function getVal_f_cardiaca() : ?string{
         return $this->val_f_cardiaca;
     }
@@ -222,6 +241,15 @@ class Valoracion
     public function setVal_trat_aplic(string $trat_aplic){
         $this->val_trat_aplic=$trat_aplic;
     }
+
+    public function getVal_enfer() : ?string{
+        return $this->val_enfer;
+    }
+
+    public function setVal_enfer(string $enfer){
+        $this->val_enfer=$enfer;
+    }
+
     public function Listar(){
         try{
             $consulta = $this->pdo->prepare("SELECT * FROM pacientes;");
@@ -272,7 +300,7 @@ class Valoracion
 
     public function Insertar(Valoracion $p){
         try{
-            $consulta="INSERT INTO valoraciones(idcita, paciente, fec_hoy, peso, talla, f_cardiaca, f_respiratoria, p_arterial, temp, saturacion02, r_an_fis, r_exa_fis, diagnostico, compli, trat_aplic) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+            $consulta="INSERT INTO valoraciones(idcita, paciente, fec_hoy, peso, talla, tipo_sang, rh, f_cardiaca, f_respiratoria, p_arterial, temp, saturacion02, r_an_fis, r_exa_fis, diagnostico, compli, trat_aplic, enfer) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
             $this->pdo->prepare($consulta)
                     ->execute(array(
 
@@ -281,6 +309,8 @@ class Valoracion
                         $p->getVal_fec_hoy(),
                         $p->getVal_peso(),
                         $p->getVal_talla(),
+                        $p->getVal_tipo_sang(),
+                        $p->getVal_rh(),
                         $p->getVal_f_cardiaca(),
                         $p->getVal_f_respiratoria(),
                         $p->getVal_p_arterial(),
@@ -290,7 +320,8 @@ class Valoracion
                         $p->getVal_r_exa_diag(),
                         $p->getVal_diagnostico(),
                         $p->getVal_compli(),
-                        $p->getVal_trat_aplic()
+                        $p->getVal_trat_aplic(),
+                        $p->getVal_enfer()
                     ));
         }catch(Exception $e){
             die($e->getMessage());
