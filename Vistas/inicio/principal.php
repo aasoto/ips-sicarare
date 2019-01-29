@@ -47,7 +47,7 @@
           <div class="tile">
             <h3 class="tile-title">Reporte de Citas por Mes</h3>
             <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
+              <div class="embed-responsive-item" id="piechart_3d" style="width: 500px; height: 370px;"></div>
             </div>
           </div>
         </div>
