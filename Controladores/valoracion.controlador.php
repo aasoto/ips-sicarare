@@ -29,6 +29,36 @@ class ValoracionControlador{
         require_once "Vistas/pie.php";
     }
 
+    Public function FormListar(){
+        $titulo = "Ver";
+        $p = new Valoracion();
+        if(isset($_GET['numdoc'])){
+            $numdoc=$_GET['numdoc'];
+            $nom1=$_GET['nom1'];
+            $nom2=$_GET['nom2'];
+            $apellido1=$_GET['apellido1'];
+            $apellido2=$_GET['apellido2'];
+            $titulo = "Ver";
+            $nombre = $numdoc." - ".$nom1." ".$nom2." ".$apellido1." ".$apellido2;
+        }
+        require_once "Vistas/encabezado.php";
+        require_once "Vistas/valoracion/listado.php";
+        require_once "Vistas/pie.php";
+    }
+
+    Public function FormVer(){
+        $titulo = "Ver";
+        $p = new Valoracion();
+        if(isset($_GET['idcita'])){
+            $idcita=$_GET['idcita'];
+            $p=$this->modelo->Obtener($idcita);
+            $titulo = "Ver";
+        }
+        require_once "Vistas/encabezado.php";
+        require_once "Vistas/valoracion/consultar.php";
+        require_once "Vistas/pie.php";
+    }
+
     public function Guardar(){
         $p = new Valoracion();
         $p->setVal_idcita($_POST['idcita']);

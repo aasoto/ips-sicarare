@@ -44,6 +44,7 @@
                         </td>
                         <td>
                             <a href="?c=paciente&a=FormCrear&numdoc=<?= $r->numdoc?>" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i>Editar</a>
+                            <a href="?c=valoracion&a=FormListar&numdoc=<?= $r->numdoc?>&nom1=<?= $r->nom1?>&nom2=<?= $r->nom2?>&apellido1=<?= $r->apellido1?>&apellido2=<?= $r->apellido2?>" class="btn btn-primary"><i class="fa fa-clock-o"></i>Historial</a>
                         </td>
                     </tr>
                     <?php endforeach;?>

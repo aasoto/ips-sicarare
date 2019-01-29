@@ -250,16 +250,6 @@ class Valoracion
         $this->val_enfer=$enfer;
     }
 
-    public function Listar(){
-        try{
-            $consulta = $this->pdo->prepare("SELECT * FROM pacientes;");
-            $consulta->execute();
-            return $consulta->fetchAll(PDO::FETCH_OBJ);
-        }catch(Exception $e){
-            die($e->getMessage());
-        }
-
-    }
 
     public function ConsultarMedico(){
         try{
@@ -323,6 +313,49 @@ class Valoracion
                         $p->getVal_trat_aplic(),
                         $p->getVal_enfer()
                     ));
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function Listar($nombre){
+        try{
+            $consulta = $this->pdo->prepare("SELECT * FROM valoraciones WHERE paciente=?;");
+            $consulta->execute(array($nombre));
+            return $consulta->fetchAll(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+
+    }
+
+    public function Obtener($idcita){
+        try{
+            $consulta = $this->pdo->prepare("SELECT * FROM valoraciones WHERE id=?;");
+            $consulta->execute(array($idcita));
+            $r = $consulta->fetch(PDO::FETCH_OBJ);
+            $p = new Valoracion();
+            $p->setVal_id($r->id);
+            $p->setVal_paciente($r->paciente);
+            $p->setVal_fec_hoy($r->fec_hoy);
+            $p->setVal_peso($r->peso);
+            $p->setVal_talla($r->talla);
+            $p->setVal_tipo_sang($r->tipo_sang);
+            $p->setVal_rh($r->rh);
+            $p->setVal_f_cardiaca($r->f_cardiaca);
+            $p->setVal_f_respiratoria($r->f_respiratoria);
+            $p->setVal_p_arterial($r->p_arterial);
+            $p->setVal_temp($r->temp);
+            $p->setVal_saturacion02($r->saturacion02);
+            $p->setVal_r_an_fis($r->r_an_fis);
+            $p->setVal_r_exa_diag($r->r_exa_fis);
+            $p->setVal_diagnostico($r->diagnostico);
+            $p->setVal_compli($r->compli);
+            $p->setVal_trat_aplic($r->trat_aplic);
+            $p->setVal_enfer($r->enfer);
+
+            return $p;
+
         }catch(Exception $e){
             die($e->getMessage());
         }
