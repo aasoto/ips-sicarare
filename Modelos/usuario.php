@@ -145,9 +145,9 @@ class Usuario{
 
     }
 
-    public function Verificar($numdoc){
+    public function Verificar($numdoc, $usuario){
         try{
-            $consulta = $this->pdo->prepare("SELECT * FROM usuarios WHERE num_doc='$numdoc';");
+            $consulta = $this->pdo->prepare("SELECT * FROM usuarios WHERE num_doc='$numdoc' OR user='$usuario';");
             $consulta->execute();
             $consulta->fetch(PDO::FETCH_OBJ);
             if ($consulta->rowCount() > 0) {

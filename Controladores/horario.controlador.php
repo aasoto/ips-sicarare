@@ -1,6 +1,7 @@
 <?php
 
 require_once "Modelos/horario.php";
+require_once "Modelos/encabezado.php";
 
 class HorarioControlador{
 
@@ -8,10 +9,12 @@ private $modelo;
 
     public function __CONSTRUCT(){
         $this->modelo = new Horario;
+        $this->modelo2 = new Encabezado;
     }
 
     public function Inicio(){
-
+        $e = new Encabezado();
+        $e = $this->modelo2->Obtener($_SESSION['USER']);
         require_once "Vistas/encabezado.php";
         require_once "Vistas/horario/index.php";
         require_once "Vistas/pie.php";
@@ -24,6 +27,8 @@ private $modelo;
             $h=$this->modelo->Obtener($_GET['id']);
             $titulo = "Modificar";
         }
+        $e = new Encabezado();
+        $e = $this->modelo2->Obtener($_SESSION['USER']);
         require_once "Vistas/encabezado.php";
         require_once "Vistas/horario/agregar.php";
         require_once "Vistas/pie.php";

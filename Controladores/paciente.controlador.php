@@ -1,6 +1,7 @@
 <?php
 
 require_once "Modelos/paciente.php";
+require_once "Modelos/encabezado.php";
 
 class PacienteControlador{
 
@@ -8,9 +9,12 @@ class PacienteControlador{
 
     public function __CONSTRUCT(){
         $this->modelo = new Paciente;
+        $this->modelo2 = new Encabezado;
     }
 
     public function Inicio(){
+        $e = new Encabezado();
+        $e = $this->modelo2->Obtener($_SESSION['USER']);
         require_once "Vistas/encabezado.php";
         require_once "Vistas/paciente/index.php";
         require_once "Vistas/pie.php";
@@ -23,6 +27,8 @@ class PacienteControlador{
             $p=$this->modelo->Obtener($_GET['numdoc']);
             $titulo = "Modificar";
         }
+        $e = new Encabezado();
+        $e = $this->modelo2->Obtener($_SESSION['USER']);
         require_once "Vistas/encabezado.php";
         require_once "Vistas/paciente/agregar.php";
         require_once "Vistas/pie.php";
@@ -50,7 +56,7 @@ class PacienteControlador{
             } elseif ($documento == 'existe') {
                 echo "<script>
                 alert('El número de identificación al que desea cambiar ya está registrado.');
-                window.location= '?c=paciente'
+                history.go(-1);
                 </script>";
             }    
         } else{
@@ -61,7 +67,7 @@ class PacienteControlador{
             } elseif ($documento == 'existe') {
                 echo "<script>
                 alert('El número de identificación ya está registrado.');
-                window.location= '?c=paciente'
+                history.go(-1);
                 </script>";
             } 
         }

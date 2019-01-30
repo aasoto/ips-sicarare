@@ -1,6 +1,7 @@
 <?php
 
 require_once "Modelos/usuario.php";
+require_once "Modelos/encabezado.php";
 
 class UsuarioControlador{
 
@@ -8,17 +9,20 @@ class UsuarioControlador{
 
     public function __CONSTRUCT(){
         $this->modelo = new Usuario;
+        $this->modelo2 = new Encabezado;
     }
 
     public function Inicio(){
-
+        $e = new Encabezado();
+        $e = $this->modelo2->Obtener($_SESSION['USER']);
         require_once "Vistas/encabezado.php";
         require_once "Vistas/usuario/index.php";
         require_once "Vistas/pie.php";
     }
 
     Public function FormCrear(){
-
+        $e = new Encabezado();
+        $e = $this->modelo2->Obtener($_SESSION['USER']);
         require_once "Vistas/encabezado.php";
         require_once "Vistas/usuario/agregar.php";
         require_once "Vistas/pie.php";
@@ -39,14 +43,14 @@ class UsuarioControlador{
         $u->setUsu_rol($_POST['rol']);
         $u->setUsu_password($_POST['password']);
 
-        $documento = $this->modelo->Verificar($_POST['num_doc']);    
+        $documento = $this->modelo->Verificar($_POST['num_doc'], $_SESSION['USER']);    
         if ($documento == 'vacio') {
             $this->modelo->Insertar($u);
             header("location:?c=usuario");
         } elseif ($documento == 'existe') {
             echo "<script>
-            alert('El número de identificación ya está registrado.');
-            window.location= '?c=usuario&a=FormCrear'
+            alert('El número de identificación o nombre de usuario ya está registrado.');
+            history.go(-1);
             </script>";
         } 
 

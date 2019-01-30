@@ -1,6 +1,7 @@
 <?php
 
 require_once "Modelos/medico.php";
+require_once "Modelos/encabezado.php";
 
 class MedicoControlador{
 
@@ -8,17 +9,20 @@ class MedicoControlador{
 
     public function __CONSTRUCT(){
         $this->modelo = new Medico;
+        $this->modelo2 = new Encabezado;
     }
 
     public function Inicio(){
-
+        $e = new Encabezado();
+        $e = $this->modelo2->Obtener($_SESSION['USER']);
         require_once "Vistas/encabezado.php";
         require_once "Vistas/medico/index.php";
         require_once "Vistas/pie.php";
     }
 
     Public function FormCrear(){
-
+        $e = new Encabezado();
+        $e = $this->modelo2->Obtener($_SESSION['USER']);
         require_once "Vistas/encabezado.php";
         require_once "Vistas/medico/agregar.php";
         require_once "Vistas/pie.php";
@@ -43,14 +47,14 @@ class MedicoControlador{
         $m->setMed_area($_POST['area']);
 
         
-        $documento = $this->modelo->Verificar($_POST['numdoc']);    
+        $documento = $this->modelo->Verificar($_POST['numdoc'], $_SESSION['USER']);    
         if ($documento == 'vacio') {
             $this->modelo->Insertar($m);
             header("location:?c=medico");
         } elseif ($documento == 'existe') {
             echo "<script>
-            alert('El número de identificación ya está registrado.');
-            window.location= '?c=medico&a=FormCrear'
+            alert('El número de identificación o nombre de usuario ya está registrado.');
+            history.go(-1);
             </script>";
         } 
 

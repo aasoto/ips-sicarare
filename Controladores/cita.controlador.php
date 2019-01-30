@@ -1,6 +1,7 @@
 <?php
 
 require_once "Modelos/cita.php";
+require_once "Modelos/encabezado.php";
 
 class CitaControlador{
 
@@ -8,10 +9,12 @@ class CitaControlador{
 
     public function __CONSTRUCT(){
         $this->modelo = new Cita;
+        $this->modelo2 = new Encabezado;
     }
 
     public function Inicio(){
-
+        $e = new Encabezado();
+        $e = $this->modelo2->Obtener($_SESSION['USER']);
         require_once "Vistas/encabezado.php";
         require_once "Vistas/cita/index.php";
         require_once "Vistas/pie.php";
@@ -24,13 +27,16 @@ class CitaControlador{
             $c=$this->modelo->Obtener($_GET['id']);
             $titulo = "Modificar";
         }
+        $e = new Encabezado();
+        $e = $this->modelo2->Obtener($_SESSION['USER']);
         require_once "Vistas/encabezado.php";
         require_once "Vistas/cita/agregar.php";
         require_once "Vistas/pie.php";
     }
 
     Public function FormConsultar(){
-
+        $e = new Encabezado();
+        $e = $this->modelo2->Obtener($_SESSION['USER']);
         require_once "Vistas/encabezado.php";
         require_once "Vistas/cita/consultar.php";
         require_once "Vistas/pie.php";

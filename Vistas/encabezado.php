@@ -1,33 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
-
-        var options = {
-          is3D: true,
-          pieHole: 0.4,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-      }
-    </script>
-
-
-
     <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
     <!-- Twitter meta-->
     <meta property="twitter:card" content="summary_large_image">
@@ -69,8 +42,8 @@
     <aside class="app-sidebar">
       <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
         <div>
-          <p class="app-sidebar__user-name">Teuvo Kohonen</p>
-          <p class="app-sidebar__user-designation">Gerente</p>
+        <p class="app-sidebar__user-name"><?php print_r($e->getEn_nom1()." ".$e->getEn_apellido1()) ?></p>
+          <p class="app-sidebar__user-designation"><?php if (empty($e->getEn_rol())){ print_r($e->getEn_area()); }else{ print_r($e->getEn_rol()); } ?></p>
         </div>
       </div>
       <ul class="app-menu">
