@@ -6,8 +6,8 @@
     <!-- The javascript plugin to display page loading on top-->
     <script src="assets/js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
-    <script type="text/javascript">
-    </script>
+    <script type="text/javascript" src="assets/js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/dataTables.bootstrap.min.js"></script>
     <!-- Otros-->
     <script src="assets/js/salir.js"></script>
     <!-- Google analytics script-->
