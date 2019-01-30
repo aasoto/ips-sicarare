@@ -34,6 +34,56 @@ class ValoracionControlador{
         require_once "Vistas/valoracion/agregar.php";
         require_once "Vistas/pie.php";
     }
+	
+Public function FormCrear(){
+        $titulo = "Ver";
+        $p = new Valoracion();
+        if(isset($_GET['numdoc'])){
+            $p=$_GET['numdoc'];
+            $q=$_GET['idcita'];
+            $titulo = "Registrar";
+        }
+        $e = new Encabezado();
+        $e = $this->modelo2->Obtener($_SESSION['USER']);
+        require_once "Vistas/encabezado.php";
+        require_once "Vistas/valoracion/agregar.php";
+        require_once "Vistas/pie.php";
+    }
+
+    Public function FormListar(){
+        $titulo = "Ver";
+        $p = new Valoracion();
+        if(isset($_GET['numdoc'])){
+            $numdoc=$_GET['numdoc'];
+            $nom1=$_GET['nom1'];
+            $nom2=$_GET['nom2'];
+            $apellido1=$_GET['apellido1'];
+            $apellido2=$_GET['apellido2'];
+            $titulo = "Ver";
+            $nombre = $numdoc." - ".$nom1." ".$nom2." ".$apellido1." ".$apellido2;
+        }
+        $e = new Encabezado();
+        $e = $this->modelo2->Obtener($_SESSION['USER']);
+        require_once "Vistas/encabezado.php";
+        require_once "Vistas/valoracion/listado.php";
+        require_once "Vistas/pie.php";
+    }
+
+    Public function FormVer(){
+        $titulo = "Ver";
+        $p = new Valoracion();
+        if(isset($_GET['idcita'])){
+            $idcita=$_GET['idcita'];
+            $p=$this->modelo->Obtener($idcita);
+            $titulo = "Ver";
+        }
+        $e = new Encabezado();
+        $e = $this->modelo2->Obtener($_SESSION['USER']);
+        require_once "Vistas/encabezado.php";
+        require_once "Vistas/valoracion/consultar.php";
+        require_once "Vistas/pie.php";
+    }
+
 
     public function Guardar(){
         $p = new Valoracion();
