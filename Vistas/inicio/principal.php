@@ -53,7 +53,7 @@
         </div>
         <div class="col-md-6">
           <div class="tile">
-            <h3 class="tile-title">Areas con más Citas</h3>
+            <h3 class="tile-title">Gráfico de Citas Por Área</h3>
             <div class="embed-responsive embed-responsive-16by9">
               <canvas class="embed-responsive-item" id="pieChartDemo"></canvas>
             </div>
@@ -83,5 +83,61 @@
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
         chart.draw(data, options);
+
+        var pdata = [
+      	{
+      		value: <?php print_r($i->getIni_mege()) ?>,
+      		color: "#46BFBD",
+      		highlight: "#46BFBD",
+      		label: "Medicina General"
+      	},
+      	{
+      		value: <?php print_r($i->getIni_gine()) ?>,
+      		color:"#FFFF00",
+      		highlight: "#FFFF00",
+      		label: "Ginecología"
+      	},
+        {
+      		value: <?php print_r($i->getIni_pedi()) ?>,
+      		color:"#008000",
+      		highlight: "#008000",
+      		label: "Pediatría"
+      	},
+        {
+      		value: <?php print_r($i->getIni_orto()) ?>,
+      		color:"#F7464A",
+      		highlight: "#F7464A",
+      		label: "Ortopedia"
+      	},
+        {
+      		value: <?php print_r($i->getIni_mein()) ?>,
+      		color:"#800080",
+      		highlight: "#800080",
+      		label: "Medicina Interna"
+      	},
+        {
+      		value: <?php print_r($i->getIni_psico()) ?>,
+      		color:"#808000",
+      		highlight: "#808000",
+      		label: "Psicología"
+      	},
+        {
+      		value: <?php print_r($i->getIni_nutri()) ?>,
+      		color:"#000080",
+      		highlight: "#000080",
+      		label: "Nutrición"
+      	},
+        {
+      		value: <?php print_r($i->getIni_bacte()) ?>,
+      		color:"#800000",
+      		highlight: "#800000",
+      		label: "Bacteriología"
+      	}
+
+      ]
+
+      var ctxp = $("#pieChartDemo").get(0).getContext("2d");
+      var pieChart = new Chart(ctxp).Pie(pdata);
+
       }
     </script>

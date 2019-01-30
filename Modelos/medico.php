@@ -168,7 +168,7 @@ class Medico
 
     }
 
-    public function Verificar($numdoc, $usuario){
+    public function Verificar($numdoc,$usuario){
         try{
             $consulta = $this->pdo->prepare("SELECT * FROM medicos WHERE numdoc='$numdoc' OR user='$usuario';");
             $consulta->execute();
