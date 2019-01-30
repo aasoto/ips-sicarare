@@ -52,7 +52,7 @@
                     
                     
                     <div class="tile-footer">       
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-paper-plane"></i>Actualizar</button>
+                        <button disabled="true" type="submit" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-paper-plane"></i>Actualizar</button>
                     </div>
                 </form>
             </div>
