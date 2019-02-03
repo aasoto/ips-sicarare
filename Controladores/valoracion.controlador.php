@@ -34,21 +34,6 @@ class ValoracionControlador{
         require_once "Vistas/valoracion/agregar.php";
         require_once "Vistas/pie.php";
     }
-	
-Public function FormCrear(){
-        $titulo = "Ver";
-        $p = new Valoracion();
-        if(isset($_GET['numdoc'])){
-            $p=$_GET['numdoc'];
-            $q=$_GET['idcita'];
-            $titulo = "Registrar";
-        }
-        $e = new Encabezado();
-        $e = $this->modelo2->Obtener($_SESSION['USER']);
-        require_once "Vistas/encabezado.php";
-        require_once "Vistas/valoracion/agregar.php";
-        require_once "Vistas/pie.php";
-    }
 
     Public function FormListar(){
         $titulo = "Ver";
