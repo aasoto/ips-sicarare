@@ -60,7 +60,7 @@ class CitaControlador{
         endforeach;
 
         if ($c->getCit_id() > 0) {
-            $bandera = $this->modelo->Verificar($c->getCit_fecha(), $c->getCit_hora(), $m->area);
+            $bandera = $this->modelo->Verificar($c->getCit_fecha(), $c->getCit_hora(), $c->getCit_medico());
             if ($bandera == 'vacio') {
                 $this->modelo->Actualizar($c);
                 header("location:?c=cita");
@@ -71,7 +71,7 @@ class CitaControlador{
                 </script>";
             } 
         } else{
-            $bandera = $this->modelo->Verificar($_POST['fecha'], $_POST['hora'], $m->area);
+            $bandera = $this->modelo->Verificar($_POST['fecha'], $_POST['hora'], $_POST['medico']);
             if ($bandera == 'vacio') {
                 $this->modelo->Insertar($c);
                 header("location:?c=cita");

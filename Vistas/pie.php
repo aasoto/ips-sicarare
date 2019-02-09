@@ -9,6 +9,7 @@
     <script type="text/javascript" src="assets/js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="assets/js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    <script type="text/javascript" src="assets/js/plugins/select2.min.js"></script>
     <!-- Otros-->
     <script src="assets/js/salir.js"></script>
     <!-- Google analytics script-->
@@ -21,6 +22,7 @@
       	ga('create', 'UA-72504830-1', 'auto');
       	ga('send', 'pageview');
       }
+      $('#demoSelect').select2();
     </script>
   </body>
 </html>

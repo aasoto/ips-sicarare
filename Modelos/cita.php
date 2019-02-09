@@ -150,9 +150,9 @@ class Cita
 
     }
 
-    public function Verificar($fecha, $hora, $area){
+    public function Verificar($fecha, $hora, $medico){
         try{
-            $consulta = $this->pdo->prepare("SELECT * FROM citas WHERE fecha='$fecha' AND hora='$hora' AND area='$area';");
+            $consulta = $this->pdo->prepare("SELECT * FROM citas WHERE fecha='$fecha' AND hora='$hora' AND medico='$medico';");
             $consulta->execute();
             $consulta->fetch(PDO::FETCH_OBJ);
             if ($consulta->rowCount() > 0) {

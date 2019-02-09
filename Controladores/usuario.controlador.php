@@ -56,6 +56,33 @@ class UsuarioControlador{
 
     }
 
+    function enviarEmail($email, $nombre, $asunto, $cuerpo){
+		
+		require_once 'PHPMailer/PHPMailerAutoload.php';
+		
+		$mail = new PHPMailer();
+		$mail->isSMTP();
+		$mail->SMTPAuth = true;
+		$mail->SMTPSecure = 'tls';
+		$mail->Host = 'smtp.gmail.com';
+		$mail->Port = '587';
+		
+		$mail->Username = 'Johndoe@gmail.com';
+		$mail->Password = 'xxxxxxxxxx';
+		
+		$mail->setFrom('Johndoe@gmail.com', 'Sicarare Medical Center');
+		$mail->addAddress($email, $nombre);
+		
+		$mail->Subject = $asunto;
+		$mail->Body    = $cuerpo;
+		$mail->IsHTML(true);
+		
+		if($mail->send())
+		return true;
+		else
+		return false;
+	}
+
 }
 
 ?>
