@@ -42,6 +42,13 @@ class CitaControlador{
         require_once "Vistas/pie.php";
     }
 
+public function Cancelar(){
+        $this->modelo->CancelarCita($_GET['id']);
+        echo "<script>
+        setTimeout('alert('Cita Cancelada.');', 1);
+                </script>";
+        header("location:?c=cita");
+    }
     public function Guardar(){
         $c = new Cita();
         $c->setCit_id(intval($_POST['id']));
