@@ -242,6 +242,20 @@ class Cita
             die($e->getMessage());
         }
     }
+	public function CancelarCita($id){
+        try{
+            $consulta="UPDATE citas SET 
+                estado=?
+                WHERE id=?;";
+            $this->pdo->prepare($consulta)
+                    ->execute(array(
+                        'Cancelada',
+                        $id
+                    ));
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
 
 }
 
