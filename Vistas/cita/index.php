@@ -21,10 +21,11 @@
             <div class="tile-body">
               <table class="table table-hover table-bordered" id="sampleTable">
                 <thead>
-                <th>ID</th><th>Paciente</th><th>Area - Medico</th><th>Fecha</th><th>Hora</th><th>Acciones</th>
+                <th>ID</th><th>Paciente</th><th>Area - Medico</th><th>Fecha</th><th>Hora</th><th>Acciones</th><th></th>
                 </thead>
                 <tbody>
-                <?php foreach ($this->modelo->Listar() as $r):?>
+                <?php foreach ($this->modelo->Listar() as $r):
+                    if($r->estado == 'Pendiente'){ ?>
                     <tr>
                         <td>
                             <?= $r->id?>
@@ -44,8 +45,11 @@
                         <td>
                             <a href="?c=cita&a=FormCrear&id=<?= $r->id?>" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i>Editar</a>
                         </td>
+                        <td>
+                            <a href="?c=cita&a=Cancelar&id=<?= $r->id?>" class="btn btn-danger"><i class="fa fa-times"></i>Cancelar</a>
+                        </td>
                     </tr>
-                    <?php endforeach;?>
+                    <?php } endforeach;?>
                 </tbody>
               </table>
             </div>
