@@ -43,7 +43,8 @@
                     <th>Id</th><th>Paciente</th><th>Area - Medico</th><th>Fecha</th><th>Hora</th><th>Accion</th>
                     </thead>
                     <?php 
-                    foreach ($this->Consulta() as $r):?>
+                    foreach ($this->Consulta() as $r):
+                        if($r->estado == 'Pendiente'){?>
                         <tr>
                             <td>
                             <?= $r->id?>
@@ -59,7 +60,7 @@
                             <a href="?c=valoracion&a=FormCrear&numdoc=<?= $r->paciente?>&idcita=<?= $r->id?>" class="btn btn-primary">Valorar</a>
                             </td>
                         </tr>
-                    <?php endforeach;?>
+                    <?php } endforeach;?>
                     </table>
             </div>
         </div>
